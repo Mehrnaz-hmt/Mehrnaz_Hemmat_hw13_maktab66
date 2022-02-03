@@ -6,7 +6,7 @@ let delBtn = $("#del-btn");
 let myInput1 = $("#my-input-1");
 let radioBox = $("td").children();
 let counter = 0;
-let rowCount = $(" table tbody tr").length;
+let rowCount = $("table tbody tr").length;
 
 //add-row btn 
  $(".add-row").on('click', addRow);
@@ -103,16 +103,15 @@ $(document).on('click',"#clone-btn", function(e)
 });
 
 
-//number of length
-// $(".rows-Number").text(` ${rowCount=$("table tbody tr").length-1} `) //1
+//All rows number:
 $(document).ready(function(){
-  $(".all-rows").click(function(){
+  
+  $('.add-row').click(function(){
       var rowCount = $("table tr").length-1;
-      $(".rows-Number").text(`${rowCount}`)
-      // alert(rowCount); // Outputs: 4
+      $(".all-rows").html(`All rows number: ${rowCount++}`);
   });
-});
 
+});
 
 //radioBox in confirmed mood
 $('.form-check input').on('change', function() {
