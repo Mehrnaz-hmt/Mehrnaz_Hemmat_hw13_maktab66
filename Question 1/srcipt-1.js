@@ -92,6 +92,11 @@ $(document).ready(function() {
     $(".table").on("click", "#del-btn", function() {
         $(this).closest("tr").remove();
      }); 
+     
+    var allRowsValue= $(".all-rows").val();
+    $("allRowsValue").html(`All rows number: ${rowCount--}`);
+  
+     
 })
 
 //when I click on clone btn:
@@ -105,7 +110,6 @@ $(document).on('click',"#clone-btn", function(e)
 
 //All rows number:
 $(document).ready(function(){
-  
   $('.add-row').click(function(){
       var rowCount = $("table tr").length-1;
       $(".all-rows").html(`All rows number: ${rowCount++}`);
@@ -114,9 +118,35 @@ $(document).ready(function(){
 });
 
 //radioBox in confirmed mood
-$('.form-check input').on('change', function() {
+$('.radio-box-cont').on('click', function() {
   if($('input[value=Confirmed]:checked')) {
     $("#my-input-1").prop('disabled', true);
     $("#my-input-2").prop('disabled', true);
   }
+});
+
+//Not confirmed row btn:
+
+// let ncrownumber = 0;
+//   if($('input[!value==Confirmed]:checked')) {
+//     $(".nc-rows-Number").html(`Not comfired rows number: ${ncrownumber++}`)
+//   }
+
+// $('.add-row').click(function(){
+//   var rowCount = $("table tr").length-1;
+//  let nConfirmedBtn =  $('input[name="radio-box-cont"]:checked').val();
+//  if(nConfirmedBtn=="confirmed"){
+
+//  }
+// });
+
+//test 
+$("table").on("click", ".new", function (e) {
+  let check = $(this).closest(".thisRow");
+  let inputs = $(":text");
+  if (e.target.checked) {
+    check.find(inputs)[0].disabled = false;
+    check.find(inputs)[1].disabled = false;
+  }
+  checkConfrimed()
 });
